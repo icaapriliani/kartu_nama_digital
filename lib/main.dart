@@ -120,6 +120,27 @@ class profileCard extends StatelessWidget {
                   ],
                 ),
 
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 12.0),
+                      child: Icon(
+                        Icons.location_on,
+                        color: Colors.redAccent,
+                        size: 24,
+                      ),
+                    ),
+                    const Text(
+                      'Pamekasan, Jawa Timur',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 10),
               ],
             ),
