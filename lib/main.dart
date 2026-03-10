@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget{
   }
 }
 
+// ignore: camel_case_types
 class profileCard extends StatelessWidget{
   const profileCard({super.key});
 
@@ -37,6 +38,7 @@ class profileCard extends StatelessWidget{
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
+                  // ignore: deprecated_member_use
                   color:Colors.black.withOpacity(0.1), //efek bayangan halus
                   spreadRadius: 2,
                   blurRadius: 15,
@@ -46,14 +48,47 @@ class profileCard extends StatelessWidget{
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min, //sesuaikan tinggi kartu dengan konten
-              children: const[
-              CircleAvatar(
+              children: [
+              const CircleAvatar(
                 radius: 50,
                 backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8KUTCvpajEUZ_arWsbA9GUD6OwfhmzUCXZw&s"),
                 backgroundColor: Colors.transparent,
               ),
               //jarak margin bawah foto dan teks nama 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+
+              //teks nama
+              const Text(
+                'Ica',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
+                ),
+
+                const SizedBox(height: 5), //jarak margin bawah nama dan profesi
+
+                //teks profesi
+                const Text(
+                  'Mahasiswa',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey, 
+                    letterSpacing: 1.5, //jarak antar huruf
+                  ),
+                ),
+                  const SizedBox(height: 20), //jarak margin bawah profesi dan garis pembatas
+
+                  //garis pembatas
+                  Divider(
+                    color: Colors.grey[300],
+                    thickness: 1.5,
+                    indent: 20, //jarak garis pembatas dari kiri
+                    endIndent: 20, //jarak garis pembatas dari kanan
+                  ),
+
+                  const SizedBox(height: 10), 
               ],
             ),
           ),
