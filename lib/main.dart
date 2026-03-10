@@ -95,53 +95,27 @@ class profileCard extends StatelessWidget {
 
                 const SizedBox(height: 10),
 
-                //row ikon dan email
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    //ikon dgn padding
-                    const Padding(
-                      padding: EdgeInsets.only(right: 12.0),
-                      child: Icon(
-                        Icons.email,
-                        color: Colors.blueAccent,
-                        size: 24,
-                      ),
-                    ),
-                    //teks email
-                    const Text(
-                      'icaaprilianikd@gmail.com',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(right: 12.0),
-                      child: Icon(
-                        Icons.location_on,
-                        color: Colors.redAccent,
-                        size: 24,
-                      ),
-                    ),
-                    const Text(
-                      'Pamekasan, Jawa Timur',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
+                //memanggil custom widget inforow  email
+                const InfoRow(
+                  icon: Icons.email,
+                  waranaIcon: Colors.blueAccent,
+                  teks: "icaaprilianikd@gmail.com",
                 ),
                 const SizedBox(height: 10),
+                //memanggil custom widget inforow lokasi
+                const InfoRow(
+                  icon: Icons.location_on,
+                  waranaIcon: Colors.redAccent,
+                  teks: "Pamekasan, Jawa Timur",
+                ),
+                const SizedBox(height: 10),
+                //memanggil custom widget universitas
+                const InfoRow(
+                  icon: Icons.school,
+                  waranaIcon: Colors.green,
+                  teks: "Universitas Islam Madura",
+                ),
+               
               ],
             ),
           ),
@@ -149,4 +123,46 @@ class profileCard extends StatelessWidget {
       ),
     );
   }
+}
+
+//custom widget untuk row informasi
+class InfoRow extends StatelessWidget{
+  final IconData icon;
+  final Color waranaIcon;
+  final String teks;
+
+  const InfoRow({
+    super.key,
+    required this.icon,
+    required this.waranaIcon,
+    required this.teks,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 12.0),
+          child: Icon(
+            icon,
+            color: waranaIcon,
+            size: 24,
+          ),
+        ),
+        Text(
+          teks,
+          style: const TextStyle(
+            fontSize: 14,
+            color: Colors.black87,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+
+    ],
+    );
+  }
+
 }
